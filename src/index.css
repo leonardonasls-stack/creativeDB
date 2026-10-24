@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Configuração de acessibilidade de foco visível (WCAG 2.4.7) */
+  *:focus-visible {
+    outline: 2px solid #1E4D3B;
+    outline-offset: 3px;
+  }
+
+  /* Altura de linha mínima e renderização editorial limpa */
+  html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    line-height: 1.6;
+    letter-spacing: -0.011em;
+  }
+}
+
+/* Respeito à preferência do usuário por redução de movimento (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar discreta e elegante */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F1EA;
+}
+::-webkit-scrollbar-thumb {
+  background: #7D766D;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #57534E;
+}
